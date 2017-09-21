@@ -1,0 +1,207 @@
+/*导航栏优化*/
+.navbar-toggle {
+	border: none;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background: none;
+}
+.navbar-inverse .navbar-brand{
+  color: white;
+  font-size: 24px;
+}
+.navbar-nav a{
+  font-size: 18px;
+}
+/*首页样式*/
+#bingImg img{
+	width: 100%;
+	border: 3px solid #888888;
+	padding: 8px;
+	transition: 1s ease-in-out;
+
+}
+body{
+	margin-top: 50px;
+}
+a{
+	text-align: center;
+	color: white;
+}
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+.element{
+	margin-top: 70px;
+	font-size: 24px;
+}
+#example-navbar-collapse{
+    margin-right: -15px;
+    margin-left: -15px;
+    }
+.navbar-brand,a{
+	box-shadow: none;
+}
+#picShow img{
+	width:100%;
+	border: 1px solid silver;
+	box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.31);
+}
+/*红心*/
+.heart {
+  background: url(images/web_heart_animation.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background-size:1450px; //实际背景图片尺寸2900px
+}
+.heart:hover{
+  background-position: right; //显示最后一个红心帧
+}
+.likeCount{
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+
+}
+@-webkit-keyframes heartBlast {
+  0% {background-position: left;}
+  100% {background-position: right;}
+}
+
+@keyframes heartBlast {
+  0% {background-position: left;}
+  100% {background-position: right;}
+}
+
+.heartAnimation {
+  -webkit-animation-name: heartBlast; //webkit内核浏览器
+  animation-name: heartBlast;
+  -webkit-animation-duration: .8s;
+  animation-duration: .8s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(28); //共28个背景图片帧
+  animation-timing-function: steps(28);
+  background-position: right;
+}
+..grid__item-title{
+	text-align: center;
+}
+/*个人中心样式文件*/
+.selfBack{
+	background: url(../images/selfback.jpg) no-repeat center;
+	background-size: cover;
+}
+.headlogo img{
+	margin-top: 40px;
+	width: 8em;
+	border-radius: 50%;
+	border: 4px solid rgba(255, 255, 255, 0.57);
+}
+.headlogo i{
+	padding:3px;
+	font-size: 15px;
+	line-height: 15px;
+	position: absolute;
+	margin-left: -25px;
+	bottom:5px;
+	border-radius: 50%;
+	background: orange;
+	color: white;
+	border: 2px solid rgba(255, 255, 255, 0.77);
+}
+.selfInfo{
+	margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    text-shadow: 0px 1px 0px rgba(245, 245, 245, 0.84);
+}
+.loadInfo{
+
+	color: silver;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.col-sm-4{
+  height: 180px;
+  background: white;
+   margin-top: 5px;
+   border: 5px solid #e9ecef;
+   border-radius: 10px;
+   box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.14);
+}
+/*关于页面第一块*/
+.aboutTitle{
+  color: #777;
+  font-size: 16px;
+}
+.tipsTitle{
+  color:black;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.coderLogo img{
+  border-radius: 50%;
+  width: 45px;
+  border: 3px solid white;
+}
+.coderInfo strong{
+  display: inline-block;
+  width: 100%;
+  color: #777;
+}
+.coderInfo{
+  padding-left: 0;
+}
+.coderInfo span{
+  display: inline-block;
+  width: 100%;
+}
+.navbar-inverse{
+
+}
+.tipsWay{
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+.tipsWay a{
+  color: #777;
+}
+.fa-heart{
+  color: #E16B8C;
+}
+.footer{
+  height: 60px;
+  line-height: 60px;
+}
+.commentChange{
+  margin:0;
+  padding:0;
+    background: white;
+    border: 5px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.14);
+}

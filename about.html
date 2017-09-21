@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VSCOM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!--Leancloud 操作库:-->
+    <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="./js/Valine.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/square-loader.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="./css/lunbo.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="./js/typed.js"></script>
+	<script src="./js/main.js"></script>
+</head>
+<body>
+	<!-- 导航条 -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">VSCOM</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="./index.html" target="_blank">瀑布流</a></li>
+            <li><a href="./selfcenter.html" target="_blank">个人中心</a></li>
+            <li class="active"><a href="#">关于</a></li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<!-- 导航条结束 -->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 text-center">
+			<div class="col-xs-12">
+				<img src="./images/aboutLogo.png">
+			</div>
+			<div class="col-xs-12 aboutTitle">铭记茫茫时间长河中的闪光点。</div>
+			<div class="col-xs-12 aboutTitle">Remember the time.</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-xs-12 tipsTitle">开发相关</div>
+			<div class="row">
+			<div class="col-xs-3 coderLogo text-center">
+				<img src="./images/headlogo.jpg">
+			</div>
+			<div class="col-xs-9 coderInfo">
+				<strong>浪味仙</strong>
+				<span>本网站的开发者</span>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-xs-3 coderLogo text-center">
+				<img src="./images/zjhLogo.jpg">
+			</div>
+			<div class="col-xs-9 coderInfo">
+				<strong>🙉🙈🙊</strong>
+				<span>帮助布局、功能逻辑</span>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-xs-3 coderLogo text-center">
+				<img src="./images/yxfLogo.jpg">
+			</div>
+			<div class="col-xs-9 coderInfo">
+				<strong>Lowe</strong>
+				<span>样式修复</span>
+			</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-xs-12 tipsTitle">联系与反馈</div>
+			<div class="col-xs-12 tipsWay">
+				<a href="https://github.com/fatdoge.cn" target="_blank">
+					<i class="fa fa-github"></i>&nbsp;联系作者
+				</a>
+			</div>
+			<div class="col-xs-12 tipsWay">
+				<a href="mailto:admin@fatdoge.cn" target="_blank">
+					<i class="fa fa-envelope"></i>&nbsp;邮件反馈
+				</a>
+			</div>
+			<div class="col-xs-12 tipsWay">
+				<a href="https://fatdoge.cn" target="_blank">
+					<i class="fa fa-wordpress"></i>&nbsp;访问博客
+				</a>
+			</div>
+		</div>
+		<!-- 评论系统 -->
+		<div class="col-sm-12 text-center">
+			<h2>评论区</h2>
+		</div>
+		<div class="col-sm-12 commentChange">
+            <div class="comment"></div>
+         </div>
+	</div>
+</div>
+
+
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: 'pjap5bPcLKxRPquTPAbCUghg-gzGzoHsz', // 这里填写上面得到的APP ID
+            app_key: '264SgCtUiMBre6HHIObN6zN4', // 这里填写上面得到的APP KEY
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+    </script>
+<footer class="footer">
+    <div class="container text-center">
+    	&copy;2017&nbsp;<i class="fa fa-code"></i>&nbsp;With&nbsp;<i class="fa fa-heart"></i>&nbsp;By&nbsp;浪味仙
+    </div>
+</footer>
+
+<script src="js/classie.js"></script>
+	<script src="js/dynamics.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+</body>
+</html>
