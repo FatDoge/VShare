@@ -1,213 +1,411 @@
-/*
-	App-like One Page Layout by jayjnu
+/* ===========================================================
+ * jquery-onepage-scroll.js v1.3
+ * ===========================================================
+ * Copyright 2013 Pete Rojwongsuriya.
+ * http://www.thepetedesign.com
+ *
+ * Create an Apple-like website that let user scroll
+ * one page at a time
+ *
+ * Credit: Eike Send for the awesome swipe event
+ * https://github.com/peachananr/onepage-scroll
+ *
+ * License: GPL v3
+ *
+ * ========================================================== */
 
-	To apply one page layout to your web page,
-	it is crucial to set key values of frame, container and sections.
+!function($){
 
-	App-like One Page Layout provides active radio nav animation.
-	To activate this feature, Create html elements in accordance with markup and style guides on README.md.
-	After that, set radio and radioOn key values.
-	
-	{
-		frame: "#id",
-		container: "#id",
-		sections: ".class",
-		radio: "#id",
-		radioOn: "#id",
-		speed: 500,
-		easing: "swing"
-	}
+  var defaults = {
+    sectionContainer: "section",
+    easing: "ease",
+    animationTime: 1000,
+    pagination: true,
+    updateURL: false,
+    keyboard: true,
+    beforeMove: null,
+    afterMove: null,
+    loop: true,
+    responsiveFallback: false,
+    direction : 'vertical'
+	};
 
-*/
+	/*------------------------------------------------*/
+	/*  Credit: Eike Send for the awesome swipe event */
+	/*------------------------------------------------*/
 
-function startOnePage(myInput){
-	'use strict';
+	$.fn.swipeEvents = function() {
+      return this.each(function() {
 
-	var settings = myInput;
+        var startX,
+            startY,
+            $this = $(this);
 
-	// input values
-	var frame = $(settings.frame),
-		container = $(settings.container),
-		sections = $(settings.sections),
-		speed = settings.speed || 500,
-		radio = $(settings.radio),
-		radioOn = $(settings.radioOn),
-		easing = settings.easing || "swing";
+        $this.bind('touchstart', touchstart);
 
-	/* 
-		Boolean values to enable/disable default scroll action
-		linked to
-			1) init()
-			2) animateScr()
-			3) scroll, keydown bound event handler
-		default: true;
-	*/
-	var didScroll = true,
-		isFocused = true;
+        function touchstart(event) {
+          var touches = event.originalEvent.touches;
+          if (touches && touches.length) {
+            startX = touches[0].pageX;
+            startY = touches[0].pageY;
+            $this.bind('touchmove', touchmove);
+          }
+        }
 
-	// common variables
-	var height = $(window).height();
+        function touchmove(event) {
+          var touches = event.originalEvent.touches;
+          if (touches && touches.length) {
+            var deltaX = startX - touches[0].pageX;
+            var deltaY = startY - touches[0].pageY;
 
-	// Index values for sections elements
-	var totalSections = sections.length - 1;
+            if (deltaX >= 50) {
+              $this.trigger("swipeLeft");
+            }
+            if (deltaX <= -50) {
+              $this.trigger("swipeRight");
+            }
+            if (deltaY >= 50) {
+              $this.trigger("swipeUp");
+            }
+            if (deltaY <= -50) {
+              $this.trigger("swipeDown");
+            }
+            if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+              $this.unbind('touchmove', touchmove);
+            }
+          }
+        }
 
-	// currently displayed section number
-	// modifying this variable will cause buggy behaviors.
-	var num = 0; 
-
-	// keyboard input values
-	// add more if necessary
-	var pressedKey = {};
-		pressedKey[36] = "top"; // home
-		pressedKey[38] = "up"; // upward arrow
-		pressedKey[40] = "down"; // downward arrow
-		pressedKey[33] = "up"; // page up
-		pressedKey[34] = "down"; // page down
-		pressedKey[35] = "bottom"; // end
+      });
+    };
 
 
-	// init function to initialize/reassign values of the variables
-	// to prevent section misplacement caused by a window resize.
-	function init(){
-		height = $(window).height();
-		frame.css({"overflow":"hidden", "height": height + "px"});
-		sections.css({"height": height + "px"});
-		didScroll = true;
-		isFocused = true;
-		end = - height * ( totalSections );
+  $.fn.onepage_scroll = function(options){
+    var settings = $.extend({}, defaults, options),
+        el = $(this),
+        sections = $(settings.sectionContainer)
+        total = sections.length,
+        status = "off",
+        topPos = 0,
+        leftPos = 0,
+        lastAnimation = 0,
+        quietPeriod = 500,
+        paginationList = "";
 
-		
-		container.stop().animate({marginTop : 0}, 0, easing, function(){
-			num = 0;
-			didScroll = true;
-			turnOnRadio(0, 0);
-		});
-	}
-	// event binding to init function
-	$(window).bind("load resize", init);
-	
+    $.fn.transformPage = function(settings, pos, index) {
+      if (typeof settings.beforeMove == 'function') settings.beforeMove(index);
+      $(this).css({
+        "-webkit-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
+        "-webkit-transition": "all " + settings.animationTime + "ms " + settings.easing,
+        "-moz-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
+        "-moz-transition": "all " + settings.animationTime + "ms " + settings.easing,
+        "-ms-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
+        "-ms-transition": "all " + settings.animationTime + "ms " + settings.easing,
+        "transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
+        "transition": "all " + settings.animationTime + "ms " + settings.easing
+      });
+      $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+        if (typeof settings.afterMove == 'function') settings.afterMove(index);
+      });
+    }
 
-	// animate scrolling effect
-	var now, end;
-	function animateScr(moveTo, duration, distance){
-		var top;
-		duration = duration || speed;
-		switch(moveTo){
-			case "down":
-				top = "-=" + ( height * distance ) + "px";
-				num += distance;
-				break;
-			case "up":
-				top = "+=" + ( height * distance ) + "px";
-				num -= distance;
-				break;
-			case "bottom":
-				top = end;
-				num = totalSections;
-				break;
-			case "top":
-				top = 0;
-				num = 0;
-				break;
-			default: console.log("(error) wrong argument passed"); return false;
-		}
+    $.fn.moveDown = function() {
+      var el = $(this)
+      index = $(settings.sectionContainer +".active").data("index");
+      current = $(settings.sectionContainer + "[data-index='" + index + "']");
+      next = $(settings.sectionContainer + "[data-index='" + (index + 1) + "']");
+      if(next.length < 1) {
+        if (settings.loop == true) {
+          pos = 0;
+          next = $(settings.sectionContainer + "[data-index='1']");
+        } else {
+          return
+        }
 
-		container.not(":animated").animate({marginTop : top}, duration, easing, function(){
-			didScroll = true;
-		});
+      }else {
+        pos = (index * 100) * -1;
+      }
+      if (typeof settings.beforeMove == 'function') settings.beforeMove( next.data("index"));
+      current.removeClass("active")
+      next.addClass("active");
+      if(settings.pagination == true) {
+        $(".onepage-pagination li a" + "[data-index='" + index + "']").removeClass("active");
+        $(".onepage-pagination li a" + "[data-index='" + next.data("index") + "']").addClass("active");
+      }
 
-		if(radio){turnOnRadio(num, speed);}
-	}
+      $("body")[0].className = $("body")[0].className.replace(/\bviewing-page-\d.*?\b/g, '');
+      $("body").addClass("viewing-page-"+next.data("index"))
 
-	// show active radio button
-	function turnOnRadio(index, duration){
-		duration = duration || speed;
-		radioOn.stop().animate({"top": index * radioOn.outerHeight( true )+ "px"}, speed, easing);
-	}
+      if (history.replaceState && settings.updateURL == true) {
+        var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (index + 1);
+        history.pushState( {}, document.title, href );
+      }
+      el.transformPage(settings, pos, next.data("index"));
+    }
 
-	radio.children("li:not(" + settings.radioOn + ")").click(function(){
-		var to = $(this).index();
-		var dif = Math.abs( num - to );
+    $.fn.moveUp = function() {
+      var el = $(this)
+      index = $(settings.sectionContainer +".active").data("index");
+      current = $(settings.sectionContainer + "[data-index='" + index + "']");
+      next = $(settings.sectionContainer + "[data-index='" + (index - 1) + "']");
 
-		if(num < to){
-			animateScr("down", speed, dif);
-		}else if(num > to){
-			animateScr("up", speed, dif);
-		}
-	});
+      if(next.length < 1) {
+        if (settings.loop == true) {
+          pos = ((total - 1) * 100) * -1;
+          next = $(settings.sectionContainer + "[data-index='"+total+"']");
+        }
+        else {
+          return
+        }
+      }else {
+        pos = ((next.data("index") - 1) * 100) * -1;
+      }
+      if (typeof settings.beforeMove == 'function') settings.beforeMove(next.data("index"));
+      current.removeClass("active")
+      next.addClass("active")
+      if(settings.pagination == true) {
+        $(".onepage-pagination li a" + "[data-index='" + index + "']").removeClass("active");
+        $(".onepage-pagination li a" + "[data-index='" + next.data("index") + "']").addClass("active");
+      }
+      $("body")[0].className = $("body")[0].className.replace(/\bviewing-page-\d.*?\b/g, '');
+      $("body").addClass("viewing-page-"+next.data("index"))
 
-	/*	
-		1. get a type of event and handle accordingly
-		2. enable/disable default keyboard behavior
-	*/
-	$(document).bind("DOMMouseScroll mousewheel keydown", function(e){
-		var eType = e.type;
+      if (history.replaceState && settings.updateURL == true) {
+        var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (index - 1);
+        history.pushState( {}, document.title, href );
+      }
+      el.transformPage(settings, pos, next.data("index"));
+    }
 
-		now = parseInt( container.css("marginTop") );
-		end = - height * ( totalSections );
+    $.fn.moveTo = function(page_index) {
+      current = $(settings.sectionContainer + ".active")
+      next = $(settings.sectionContainer + "[data-index='" + (page_index) + "']");
+      if(next.length > 0) {
+        if (typeof settings.beforeMove == 'function') settings.beforeMove(next.data("index"));
+        current.removeClass("active")
+        next.addClass("active")
+        $(".onepage-pagination li a" + ".active").removeClass("active");
+        $(".onepage-pagination li a" + "[data-index='" + (page_index) + "']").addClass("active");
+        $("body")[0].className = $("body")[0].className.replace(/\bviewing-page-\d.*?\b/g, '');
+        $("body").addClass("viewing-page-"+next.data("index"))
 
-		// handles the event
-		if( didScroll && isFocused ){
-			// prevent multiple event handling
-			didScroll = false;
+        pos = ((page_index - 1) * 100) * -1;
 
-			// on wheel
-			if( eType == "DOMMouseScroll" || eType == "mousewheel" ){
+        if (history.replaceState && settings.updateURL == true) {
+            var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (page_index - 1);
+            history.pushState( {}, document.title, href );
+        }
+        el.transformPage(settings, pos, page_index);
+      }
+    }
 
-				var mvmt = e.originalEvent.wheelDelta;
-				if(!mvmt){ mvmt = -e.originalEvent.detail; }
+    function responsive() {
+      //start modification
+      var valForTest = false;
+      var typeOfRF = typeof settings.responsiveFallback
+      
+      if(typeOfRF == "number"){
+      	valForTest = $(window).width() < settings.responsiveFallback;
+      }
+      if(typeOfRF == "boolean"){
+      	valForTest = settings.responsiveFallback;
+      }
+      if(typeOfRF == "function"){
+      	valFunction = settings.responsiveFallback();
+      	valForTest = valFunction;
+      	typeOFv = typeof valForTest;
+      	if(typeOFv == "number"){
+      		valForTest = $(window).width() < valFunction;
+      	}
+      }
+      
+      //end modification 
+      if (valForTest) {
+        $("body").addClass("disabled-onepage-scroll");
+        $(document).unbind('mousewheel DOMMouseScroll MozMousePixelScroll');
+        el.swipeEvents().unbind("swipeDown swipeUp");
+      } else {
+        if($("body").hasClass("disabled-onepage-scroll")) {
+          $("body").removeClass("disabled-onepage-scroll");
+          $("html, body, .wrapper").animate({ scrollTop: 0 }, "fast");
+        }
 
-				// 휠로 스크롤을 올렸을때
-				if(mvmt > 0){
-					//만약 첫번째 영역이라면
-					if( now == 0){
-						didScroll = true;
-					}else{
-						animateScr("up", 500, 1);
-					}
-				}else if(mvmt < 0){
-					//만약 마지막 영역이라면
-					if( now == end ){
-						didScroll = true;
-					}else{
-						animateScr("down", 500, 1);
-					}
-				}else{
-					didScroll = true; 
-				}
-			}
-			// on keydown
-			else if( eType == "keydown" ){
-				// 위아래로 움직이는 키를 눌렀을 때 발동
-				if( pressedKey[e.which] ){
-					e.preventDefault();
-					if( pressedKey[e.which] == "up" ){
-						// 만약 첫번째 영역이라면
-						if( now == 0 ){
-							animateScr("bottom");
-						}else{
-							animateScr("up", speed, 1);
-						}
-					}else if( pressedKey[e.which]  == "down" ){
-						//만약 마지막 영역이라면 첫번째 화면으로 가기
-						if( now == end ){
-							animateScr("top");
-						}else{
-							animateScr("down", speed, 1);
-						}
-					}else{
-						// page down 또는 page up일 때
-						animateScr( pressedKey[e.which] );
-					}
-				}else{
-					didScroll = true;
-				}
-			}
-		}
 
-		// enable default keyboard behavior when an input or textarea is being focused
-		$("input, textarea").focus(function(){isFocused = false;})
-							.blur(function(){isFocused = true;});
-	});
+        el.swipeEvents().bind("swipeDown",  function(event){
+          if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+          el.moveUp();
+        }).bind("swipeUp", function(event){
+          if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+          el.moveDown();
+        });
 
-}
+        $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(event) {
+          event.preventDefault();
+          var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+          init_scroll(event, delta);
+        });
+      }
+    }
+
+
+    function init_scroll(event, delta) {
+        deltaOfInterest = delta;
+        var timeNow = new Date().getTime();
+        // Cancel scroll if currently animating or within quiet period
+        if(timeNow - lastAnimation < quietPeriod + settings.animationTime) {
+            event.preventDefault();
+            return;
+        }
+
+        if (deltaOfInterest < 0) {
+          el.moveDown()
+        } else {
+          el.moveUp()
+        }
+        lastAnimation = timeNow;
+    }
+
+    // Prepare everything before binding wheel scroll
+
+    el.addClass("onepage-wrapper").css("position","relative");
+    $.each( sections, function(i) {
+      $(this).css({
+        position: "absolute",
+        top: topPos + "%"
+      }).addClass("section").attr("data-index", i+1);
+      
+      
+      $(this).css({
+        position: "absolute",
+        left: ( settings.direction == 'horizontal' )
+          ? leftPos + "%"
+          : 0,
+        top: ( settings.direction == 'vertical' || settings.direction != 'horizontal' )
+          ? topPos + "%"
+          : 0
+      });
+      
+      if (settings.direction == 'horizontal')
+        leftPos = leftPos + 100;
+      else
+        topPos = topPos + 100;
+      
+      
+      if(settings.pagination == true) {
+        paginationList += "<li><a data-index='"+(i+1)+"' href='#" + (i+1) + "'></a></li>"
+      }
+    });
+
+    el.swipeEvents().bind("swipeDown",  function(event){
+      if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+      el.moveUp();
+    }).bind("swipeUp", function(event){
+      if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+      el.moveDown();
+    });
+
+    // Create Pagination and Display Them
+    if (settings.pagination == true) {
+      if ($('ul.onepage-pagination').length < 1) $("<ul class='onepage-pagination'></ul>").prependTo("body");
+      
+      if( settings.direction == 'horizontal' ) {
+        posLeft = (el.find(".onepage-pagination").width() / 2) * -1;
+        el.find(".onepage-pagination").css("margin-left", posLeft);
+      } else {
+        posTop = (el.find(".onepage-pagination").height() / 2) * -1;
+        el.find(".onepage-pagination").css("margin-top", posTop);
+      }
+      $('ul.onepage-pagination').html(paginationList);
+    }
+
+    if(window.location.hash != "" && window.location.hash != "#1") {
+      init_index =  window.location.hash.replace("#", "")
+      
+      if (parseInt(init_index) <= total && parseInt(init_index) > 0) {
+        $(settings.sectionContainer + "[data-index='" + init_index + "']").addClass("active")
+        $("body").addClass("viewing-page-"+ init_index)
+        if(settings.pagination == true) $(".onepage-pagination li a" + "[data-index='" + init_index + "']").addClass("active");
+
+        next = $(settings.sectionContainer + "[data-index='" + (init_index) + "']");
+        if(next) {
+          next.addClass("active")
+          if(settings.pagination == true) $(".onepage-pagination li a" + "[data-index='" + (init_index) + "']").addClass("active");
+          $("body")[0].className = $("body")[0].className.replace(/\bviewing-page-\d.*?\b/g, '');
+          $("body").addClass("viewing-page-"+next.data("index"))
+          if (history.replaceState && settings.updateURL == true) {
+            var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (init_index);
+            history.pushState( {}, document.title, href );
+          }
+        }
+        pos = ((init_index - 1) * 100) * -1;
+        el.transformPage(settings, pos, init_index);
+      } else {
+        $(settings.sectionContainer + "[data-index='1']").addClass("active")
+        $("body").addClass("viewing-page-1")
+        if(settings.pagination == true) $(".onepage-pagination li a" + "[data-index='1']").addClass("active");
+      }
+    }else{
+      $(settings.sectionContainer + "[data-index='1']").addClass("active")
+      $("body").addClass("viewing-page-1")
+      if(settings.pagination == true) $(".onepage-pagination li a" + "[data-index='1']").addClass("active");
+    }
+    
+    if(settings.pagination == true)  {
+      $(".onepage-pagination li a").click(function (){
+        var page_index = $(this).data("index");
+        el.moveTo(page_index);
+      });
+    }
+
+
+    $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(event) {
+      event.preventDefault();
+      var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+      if(!$("body").hasClass("disabled-onepage-scroll")) init_scroll(event, delta);
+    });
+
+
+    if(settings.responsiveFallback != false) {
+      $(window).resize(function() {
+        responsive();
+      });
+
+      responsive();
+    }
+
+    if(settings.keyboard == true) {
+      $(document).keydown(function(e) {
+        var tag = e.target.tagName.toLowerCase();
+
+        if (!$("body").hasClass("disabled-onepage-scroll")) {
+          switch(e.which) {
+            case 38:
+              if (tag != 'input' && tag != 'textarea') el.moveUp()
+            break;
+            case 40:
+              if (tag != 'input' && tag != 'textarea') el.moveDown()
+            break;
+            case 33: //pageg up
+              if (tag != 'input' && tag != 'textarea') el.moveUp()
+            break;
+            case 34: //page dwn
+              if (tag != 'input' && tag != 'textarea') el.moveDown()
+            break;
+            case 36: //home
+              el.moveTo(1);
+            break;
+            case 35: //end
+              el.moveTo(total);
+            break;
+            default: return;
+          }
+        }
+
+      });
+    }
+    return false;
+  }
+
+
+}(window.jQuery);
+

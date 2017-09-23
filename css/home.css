@@ -1,8 +1,5 @@
 body {
-  margin-top: 50px;
-  padding: 0;
-  overflow-y: hidden;
-  color: #fff;
+ 
 }
 .one{background: url(../images/bg1.jpg)center;}
 .second{background: url(../images/bg2.jpg)center;}
@@ -77,4 +74,7 @@ body {
 .footerInfo{
   line-height: 45px;
   font-size: 16px;
+}
+.main{
+  margin-top: 50px;
 }

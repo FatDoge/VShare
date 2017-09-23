@@ -16,8 +16,10 @@
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<link rel="stylesheet" type="text/css" href="./css/lunbo.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/onepage-scroll.css">
 	<script src="./js/typed.js"></script>
 	<script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/home.css">
 </head>
 <body>
@@ -44,9 +46,8 @@
 <!-- 导航条结束 -->
 <!-- 首页布局 -->
 <div class="container"></div>
-<div id="view">
-  <div id="frame">
-    <div class="op-section one">
+  <div class="main">
+    <section class="op-section one">
     	<div class="row text-center">
     		<div class="col-xs-12 onepage">
     			<h1 class="text-center">VSCOM·记录时光</h1>
@@ -56,8 +57,8 @@
                 </a>
     		</div>
     	</div>
-    </div>
-    <div class="op-section second">
+    </section>
+    <section class="op-section second">
     	<div class="row text-center">
     		<div class="col-xs-12 onepage">
     			<h1 class="text-center">VSCOM·记录时光</h1>
@@ -67,8 +68,8 @@
                 </a>
     		</div>
     	</div>
-    </div>
-    <div class="op-section third">
+    </section>
+    <section class="op-section third">
     	<div class="row text-center">
     		<div class="col-xs-12 onepage">
     			<h1 class="text-center">VSCOM·记录时光</h1>
@@ -78,8 +79,8 @@
                 </a>
     		</div>
     	</div>
-    </div>
-    <div class="op-section fourth">
+    </section>
+    <section class="op-section fourth">
     	<div class="row text-center">
     		<div class="col-xs-12 onepage">
     			<h1 class="text-center">VSCOM·记录时光</h1>
@@ -89,8 +90,8 @@
                 </a>
     		</div>
     	</div>
-    </div>
-    <div class="op-section fifth">
+    </section>
+    <section class="op-section fifth">
     	<div class="row text-center">
     		<div class="col-xs-12 onepage">
     			<h1 class="text-center">VSCOM·记录时光</h1>
@@ -100,31 +101,24 @@
                 </a>
     		</div>
     	</div>
-    	<!-- 底部版权 -->
-    	<footer class="footer">
-		    <div class="container text-center footerInfo">
-		    	&copy;2017&nbsp;<i class="fa fa-code"></i>&nbsp;With&nbsp;<i class="fa fa-heart"></i>&nbsp;By&nbsp;浪味仙
-		    </div>
-		</footer>
+                <!-- 底部版权 -->
+        <footer class="footer">
+            <div class="container text-center footerInfo">
+                &copy;2017&nbsp;<i class="fa fa-code"></i>&nbsp;With&nbsp;<i class="fa fa-heart"></i>&nbsp;By&nbsp;浪味仙
+            </div>
+        </footer>
+    </section>
     </div>
-  </div>
-</div>
+
 
 
 <script src="js/classie.js"></script>
 	<script src="js/dynamics.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script>
-		  // 单页
-  startOnePage({
-    frame: "#view",
-    container: "#frame",
-    sections: ".op-section",
-    radio: "#radio",
-    radioOn: "#radioOn",
-    speed: 500,
-    easing: "swing"
-  });
+$(function(){
+    $('.main').onepage_scroll();
+});
 	</script>
 </body>
 </html>
