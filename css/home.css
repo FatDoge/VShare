@@ -1,0 +1,80 @@
+body {
+  margin-top: 50px;
+  padding: 0;
+  overflow-y: hidden;
+  color: #fff;
+}
+.one{background: url(../images/bg1.jpg)center;}
+.second{background: url(../images/bg2.jpg)center;}
+.third{background: url(../images/bg3.jpg)center;}
+.fourth{background: url(../images/bg4.jpg)center;}
+.fifth{background: url(../images/bg5.jpg)center;}
+#radioWrap{
+  width:20px;
+  height:180px;
+  position:absolute;
+  right:5%;
+  top:50%;
+  margin-top: -90px;}
+#radio{width:100%; height:100%; overflow: hidden;}
+#radio li{
+  width:20px;
+  height:20px;
+  background-color: rgba(255,255,255, 0.5);
+  text-indent: -10000px;
+  border-radius: 50%;
+  margin-top: 12px;
+  cursor:pointer;
+  list-style: none;
+}
+#radio li:first-child{margin-top:0;}
+	#radioOn{
+      width:20px;
+      height:20px;
+      margin-bottom:12px;
+      position: absolute;
+      top:0; left:0;
+      background-color: #fff;
+      border-radius: 50%;
+}
+.onepage{
+  top:7em;
+  margin:auto;
+  height:100%;
+  background: rgba(0, 0, 0, 0.51);
+  text-align: center;
+}
+.onepage h1{
+  display: inline-block;
+  height:100px;
+  height: 70px;
+  width: 100%;
+  margin-top:60px;
+}
+.enterBtn{
+  width:150px;
+  height: 50px;
+  text-align: center;
+  margin: auto;
+  display: inline-block;
+  border-radius:50px;
+  font-size: 20px;
+  border: none;
+  transition: 0.3s ease-in-out;
+  margin-top:60px;
+  margin-bottom: 60px;
+}
+.enterBtn:hover{
+  transition: 0.3s ease-in-out;
+}
+.footer{
+  position: relative;
+  margin-top: 165px;
+  color:white;
+  font-weight: lighter;
+  background: rgba(0, 0, 0, 0.51);
+}
+.footerInfo{
+  line-height: 45px;
+  font-size: 16px;
+}
