@@ -47,14 +47,14 @@
 <div class="container loginBg">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal" action="./selfcenter.html" onsubmit="return judge();">
+            <form action="./selfcenter.html" method="post" class="form-horizontal">
                 <span class="heading">VSCOM</span>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="电子邮件i@admin.com">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="电子邮件i@admin.com" name="username">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="密　码8888">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="密　码8888" name="password">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
@@ -64,7 +64,19 @@
                         <label for="checkbox1"></label>
                     </div>
                     <span class="text">记住密码</span>
-                    <button type="submit" class="btn btn-default" id="loginBtn">登录</button>
+                    <button type="button" class="btn btn-default" id="loginBtn" onclick="judge()">登录</button>
+                </div>
+                <div class="col-sm-12" id="warning" style="display: none;">
+                    <div class="alert alert-danger fade in ">
+                         <strong>登陆失败！</strong>用户名或密码错误
+                         <a href="#" class="close" data-dismiss="alert">×</a>
+                    </div>
+                </div>
+                <div class="col-sm-12" id="success" style="display: none;">
+                    <div id="myAlert" class="alert alert-success">
+                        <a href="#" class="close">&times;</a>
+                        <strong>登陆成功！</strong>跳转中... ...
+                    </div>
                 </div>
             </form>
         </div>
