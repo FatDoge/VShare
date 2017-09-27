@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="css/square-loader.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	<link rel="stylesheet" type="text/css" href="./css/lunbo.css">
+	<link rel="stylesheet" type="text/css" href="./css/about.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<script src="./js/typed.js"></script>
 	<script src="./js/main.js"></script>
@@ -39,6 +39,7 @@
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
         <ul class="nav navbar-nav">
             <li><a href="./picshow.html" target="_blank">瀑布流</a></li>
+            <li><a href="./pageshow.html" target="_blank">文章</a></li>
             <li><a href="./selfcenter.html" target="_blank">个人中心</a></li>
             <li class="active"><a href="#">关于</a></li>
         </ul>
@@ -46,6 +47,13 @@
     </div>
 </nav>
 <!-- 导航条结束 -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h2>简介</h2>
+		</div>
+	</div>
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4 text-center">
@@ -72,7 +80,7 @@
 			</div>
 			<div class="col-xs-9 coderInfo">
 				<strong>🙉🙈🙊</strong>
-				<span>帮助布局、功能逻辑</span>
+				<span>后台登录验证数据库</span>
 			</div>
 			</div>
 			<div class="row">
@@ -103,6 +111,30 @@
 				</a>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<h2>开发工具</h2>
+		</div>
+		</div>
+		</div>
+		<div class="col-sm-12 clear">
+			<ul class="sublime">
+				  <li class="buttons"></li>
+				  <li><span class="orange">$breakpoints</span>: (phone: <span class="blue">320px</span>, tablet: <span class="blue">768px</span>, desktop: <span class="blue">1024px</span>);</li>
+				  <li></li>
+				  <li><span class="gray">/* Code with Sublime Text3 */</span></li>
+				  <li><span class="red">@include media</span>(<span class="yellow">"&gt;phone"</span>,<span class="yellow"> "&lt;=tablet"</span>) {</li>
+				  <ul class="tab">
+					  <li><span class="blue">width:</span> <span class="purple">50%</span>;<span class="cursor"></span></li>
+				  </ul>
+				  <li>}</li>
+			</ul>
+		</div>
+		<div class="container">
+			<div class="row">
 		<!-- 评论系统 -->
 		<div class="col-sm-12 text-center">
 			<h2>评论区</h2>
@@ -110,8 +142,8 @@
 		<div class="col-sm-12 commentChange">
             <div class="comment"></div>
          </div>
-	</div>
-</div>
+         </div>
+         </div>
 
 
     <script>
@@ -133,5 +165,11 @@
 <script src="js/classie.js"></script>
 	<script src="js/dynamics.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
+	    <script src="./js/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
 </body>
 </html>

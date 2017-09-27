@@ -1,0 +1,101 @@
+h3{
+	box-shadow: inset 0 0 1px 0 rgba(2,2,2,.2);
+	border-left: 5px solid #222;
+	line-height: 50px;
+	color: #222;
+}
+.pageLogo{
+	width: 94px;
+	border-radius: 50%;
+	border: 1px solid #999;
+	padding: 2px;
+}
+.pageTitle{
+	font-size: 24px;
+	color: black;
+}
+.pageInfo{
+	font-size: 14px;
+}
+.pageCont{
+	color: rgba(0, 0, 0, 0.65);
+	overflow: hidden;
+	height: 60px;
+	line-height: 30px;
+}
+.row-xs-2{
+	padding: 0;
+}
+.pageMore{
+	font-size: 25px;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+/*文章具体内容*/
+.page01Back{
+	background: url(../images/pages/muou.jpg) no-repeat center;
+	background-size: cover;
+
+}
+.page02Back{
+	background: url(../images/pages/xizhuang.jpg) no-repeat center;
+	background-size: cover;
+
+}
+.page03Back{
+	background: url(../images/pages/cat.jpg) no-repeat center;
+	background-size: cover;
+
+}
+.page04Back{
+	background: url(../images/pages/meijinsitin.jpg) no-repeat center;
+	background-size: cover;
+
+}
+.storyTitle{
+	margin-top: 200px;
+	font-size: 28px;
+	color: white;
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: bolder;
+	text-shadow: 0px 2px 7px black;
+}
+.authorInfo{
+height: 55px;
+margin-bottom: 30px;
+}
+.authorInfo img{
+	border-radius: 50%;
+	width: 55px;
+	height:55px;
+	margin:0;
+	padding-right:3px;
+	margin-bottom: 30px;
+}
+.pageInfo2{
+	height: 55px;
+	line-height: 55px;
+	color: white;
+	font-size: 18px;
+	margin-bottom: 30px;
+	    text-shadow: 0px 2px 7px black;
+}
+.pageInfo2 a{
+	color: white;
+	text-decoration: none;
+}
+p{
+	line-height: 60px;
+	color: #777;
+	background: white;
+	margin: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
