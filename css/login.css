@@ -11,6 +11,7 @@
     margin-top: 70px;
     margin-bottom: 70px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    filter: opacity(0.85);
 }
 .form-horizontal .heading{
     display: block;
@@ -19,6 +20,7 @@
     padding: 35px 0;
     border-bottom: 1px solid #f0f0f0;
     margin-bottom: 30px;
+    text-shadow: 0px 3px 6px rgba(125, 105, 105, 0.45);
 }
 .form-horizontal .form-group{
     padding: 0 40px;
