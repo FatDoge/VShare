@@ -1,0 +1,121 @@
+.fr{
+	float: right;
+}
+.col-xs-12{
+	padding: 0;
+}
+.ai-padding{
+	padding-left: 0;
+}
+.user-padding{
+	padding-right: 0;
+}
+.chat-title{
+	background: #337ab7;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0px 1px 1px #080808
+}
+/*不影响布局*/
+.row{
+	margin-bottom: 48px;
+}
+.main-view{
+
+}
+.msg-view{
+margin-top: 8px;
+
+}
+.input-box{
+	position: fixed;
+	bottom: 0;
+	margin-top: 50px;
+	z-index: 999;
+}
+/*聊天窗口样式*/
+/*头像*/
+.ai-msg img{
+	width: 50px;
+	border-radius: 50px;
+	box-shadow: 0px 0px 1px 0px #080808;
+	float: right;
+}
+.user-msg img{
+	width: 50px;
+	border-radius: 50px;
+	box-shadow: 0px 0px 1px 0px #080808;
+}
+/*消息文本*/
+.msg{
+	border-radius: 5px;
+   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.49);
+    font-size: 22px;
+    word-break: break-all;
+    width: auto;
+    padding: 6px;
+    display: inline-block;
+    margin: auto;
+    background: white;
+    letter-spacing: 1px
+}
+/** 通过对小正方形旋转45度解决 **/
+.msg::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    margin-top: -10px;
+    background: inherit;/*自动继承父元素的背景*/
+    transform: rotate(45deg);
+    box-shadow: -1px 1px 1px 0px rgba(0, 0, 0, 0.49);
+}
+.user-msg{
+	margin-top: 8px;
+}
+.rightmsg{
+	border-radius: 5px;
+   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.49);
+    font-size: 22px;
+    word-break: break-all;
+    width: auto;
+    padding: 6px;
+    display: inline-block;
+    margin: auto;
+    background: white;
+    letter-spacing: 1px
+}
+.rightmsg::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    margin-top: -10px;
+    background: inherit;/*自动继承父元素的背景*/
+    transform: rotate(45deg);
+    box-shadow: 1px -1px 1px 0px rgba(0, 0, 0, 0.49);
+}
+.container{
+	background-image: linear-gradient(#8b9da9, #fff6e4);
+	min-height:100vh;
+}
+/*输入框*/
+.input-box{
+	border-bottom: 1px solid #337ab7;
+	border-radius: 0;
+}
+#sendButton{
+	border-radius: 0;
+}
+#userMsg{
+	border-radius: 0;
+}
