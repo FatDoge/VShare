@@ -1,5 +1,6 @@
 var temp=false;
 function judge(){
+    // 数据库验证
 	var url="http://hduzjh.cn:8080/VSCOM/LoginServlet";
 	var username=$("#inputEmail3").val();
 	var password=$("#inputPassword3").val();
@@ -14,6 +15,13 @@ function judge(){
     }
     })
     
+}
+function judgeIt(){
+    // 仿照数据库验证
+    var username=$("#inputEmail3").val();
+    var password=$("#inputPassword3").val();
+    if(username=="i@admin.com"&&password=="8888")success();
+    else error();
 }
 function error(){
 	$("#warning").slideDown(700);

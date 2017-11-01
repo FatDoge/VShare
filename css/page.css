@@ -32,6 +32,7 @@ h3{
 a{
 	color: black;
 	text-decoration: none;
+	word-break: keep-all;
 }
 a:hover{
 	text-decoration: none;
