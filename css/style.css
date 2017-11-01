@@ -209,3 +209,55 @@ a{
 .delete{
   margin-top: 10px;
 }
+/* 全屏上传 */
+.fullPage{
+  top:0;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(97, 94, 95, 0.925);
+  display: none;
+}
+.file-input{
+  position: absolute;
+  bottom: 9em;
+}
+.file-preview{
+  background: white;
+}
+#closeDiv{
+  position: absolute;
+  bottom: 2em;
+  z-index: 99999;
+}
+#closeInput{
+  font-size: 42px;
+  color: white;
+  -webkit-text-stroke:rgb(97, 94, 95) 4.5px;
+}
+#addPic{
+      position: fixed;
+      z-index: 999;
+      right: 10px;
+      bottom: 10px;
+      font-size: 32px;
+      color: white;
+      border-radius: 50%;
+      padding: 10px;
+      height: 50px;
+      padding-left: 12px;
+      width: 50px;
+      background: #333;
+      border: 1px solid #1d1c1d;
+      box-shadow: 0px 0px 8px 0px #1d1c1d;
+      -webkit-text-stroke:#333 4.5px;
+}
+#fileTips{
+  margin-top: 20px;
+  font-weight: bolder;
+  font-size: 28px;
+  font-family: "微软雅黑";
+  color: #337ab7;
+  border-bottom: 5px solid #337ab7;
+}
