@@ -9,22 +9,7 @@ function showPic(){
 setTimeout(showPic,1000);
 $("#showMore").hide(500);
 })
-// 过渡显示
-$("#input-id").fileinput({
-    'showUpload': true,
-    'previewFileType': 'any'
-});
 
-$("#closeInput").click(function () {
-    console.log("关闭点击");
-    $(".fullPage").slideUp();
-    $("#addPic").show();
-})
-$("#addPic").click(function(){
-    console.log("点击添加");
-    $("#addPic").hide();
-    $(".fullPage").slideDown();
-})
 	// 点赞
 $('body').on("click",'.heart',function()
     {
