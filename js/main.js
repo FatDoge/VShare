@@ -10,7 +10,7 @@ setTimeout(showPic,1000);
 $("#showMore").hide(500);
 })
 
-	// 点赞
+// 点赞
 $('body').on("click",'.heart',function()
     {
     	var A=$(this).attr("id");

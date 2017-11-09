@@ -9,6 +9,7 @@
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<script src="./layer/layer.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/square-loader.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css">
@@ -50,6 +51,7 @@
 		<div class="col-xs-12 text-center">
 			<h3>睡前故事</h3>
 		</div>
+		<a href="#" class="contribute" onclick="contribute();"><span>投稿</span></a>
 		<div class="col-xs-4 row-xs-2 text-center">
 			<a href="./page01.html" target="_blank">
 				<img src="./images/pages/muou-150x150.jpg" class="pageLogo">
@@ -161,5 +163,16 @@
 <script src="js/classie.js"></script>
 	<script src="js/dynamics.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script>
+		function contribute(){
+    //iframe层
+layer.open({
+  type: 2,
+  area: ['360px', '500px'],
+  skin: 'layui-layer-rim', //加上边框
+  content: ['contribute.html', 'yes']
+});
+}
+	</script>
 </body>
 </html>

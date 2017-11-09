@@ -100,3 +100,19 @@ p{
 	padding-right: 5px;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+/*投稿*/
+.contribute{
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	font-size: 20px;
+	border:1px solid #777;
+	background: rgba(255,255,255,1);
+	display: block;
+	z-index: 999;
+	width: 70px;
+	border-radius: 13px 13px 13px 13px;
+	letter-spacing: 4px;
+	text-align: center;
+	box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, .5);
+}
