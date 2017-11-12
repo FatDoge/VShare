@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>投稿界面</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/contribute.css">
+	<script src="./js/contribute.js"></script>
 </head>
 <body>
 <input type="" name="" placeholder="Nickname">
@@ -9,39 +15,14 @@
 <input type="" name="" placeholder="Title">
 <input type="" name="" placeholder="Link">
 <div class="container">
-<button>提交审核</button>
+<button onclick="showInfo()">提交审核</button>
+</div>
+<div class="success">
+	<!-- 审核成功 -->
+	<div class="text-center">
+		<i class="fa fa-check-circle"></i>
+		<p class="tips">提交成功</p>
+	</div>
 </div>
 </body>
-<style>
-	input{
-	width: 96%;
-    margin: 2%;
-    margin-top: 20px;
-    height: 30px;
-    border: none;
-    border-bottom: 2px solid #777;
-    font-size: 20px;
-    letter-spacing: 2px;
-    transition: 0.3 ease-in-out;
-	}
-	input:hover{
-		border-bottom:2px solid #f17c67;
-		transition: 0.3 ease-in-out;
-	}
-	.container{
-		width: 100%;
-		text-align: center;
-	}
-	button{
-		display: inline-block;
-		border:1px solid #333;
-		color: #333;
-		width: 120px;
-		background: white;
-		border-radius: 5px;
-		height: 40px;
-		font-size: 20px;
-		margin-top: 60px;
-	}
-</style>
 </html>

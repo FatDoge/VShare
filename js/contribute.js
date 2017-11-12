@@ -1,0 +1,3 @@
+function showInfo(){
+	$(".success").show();
+}

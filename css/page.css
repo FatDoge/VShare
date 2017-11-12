@@ -116,3 +116,20 @@ p{
 	text-align: center;
 	box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, .5);
 }
+#addPic {
+    position: fixed;
+    z-index: 999;
+    right: 10px;
+    bottom: 10px;
+    font-size: 32px;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    padding-left: 12px;
+    width: 50px;
+    background: #333;
+    border: 1px solid #1d1c1d;
+    box-shadow: 0px 0px 8px 0px #1d1c1d;
+    -webkit-text-stroke: #333 4.5px;
+}
