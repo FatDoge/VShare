@@ -41,12 +41,12 @@
             <li><a href="./picshow.html" target="_blank">瀑布流</a></li>
             <li><a href="./pageshow.html" target="_blank">文章</a></li>
             <li><a href="./selfcenter.html" target="_blank">个人中心</a></li>
-            <li><a href="./chat.html">小V</a></li>
             <li class="active"><a href="#">关于</a></li>
         </ul>
     </div>
     </div>
 </nav>
+<i class="fa fa-twitch" id="chat" onclick="chat();"></i>
 <!-- 导航条结束 -->
 <div class="container">
 	<div class="row">
@@ -172,5 +172,11 @@ POWERMODE.colorful = true; // make power mode colorful
 POWERMODE.shake = false; // turn off shake
 document.body.addEventListener('input', POWERMODE);
 </script>
+	<script>
+		function chat(){
+    //iframe层
+window.location="./chat.html";
+}
+	</script>
 </body>
 </html>
