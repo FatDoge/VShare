@@ -3,7 +3,7 @@ function sendMsg(){
 		if(userMsg!=""&&userMsg!=" "){
 		console.log("待发送数据:"+userMsg);
 		$("#userMsg").val("");
-		$(".chat-title").html("<span style='font-size:17px;'>输入中...<span>");
+		$(".chat-title").html('<a href="./about.html" class="text-left" id="goback"><i class="fa fa-reply"></i></a>输入中...');
 		var showMsg='<!-- 用户消息窗口 --><div class="col-xs-12 msg-view"><div class="user-msg"><div class="col-xs-9 user-padding"><p class="rightmsg fr">'+userMsg+'</p></div><div class="col-xs-3"><img src="./images/boy.png"></div></div></div>';
 	setTimeout(addMsg(showMsg),1000);
 	getMsg(userMsg);
@@ -34,7 +34,7 @@ function(result){
 	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/girl.png"></div><div class="col-xs-9 ai-padding"><p class="msg">'+resultMsg+'</p></div></div></div>';
 	$(".row").append(showAiMsg);
 	$('html').scrollTop( $(document).height());
-	$(".chat-title").html("与小V聊天中...");
+	$(".chat-title").html('<a href="./about.html" class="text-left" id="goback"><i class="fa fa-reply"></i></a>与小V聊天中');
 	}
 	//链接类
 	function linkMsg(){
@@ -46,7 +46,7 @@ function(result){
 	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/girl.png"></div><div class="col-xs-9 ai-padding"><p class="msg"><a href="'+resultLink+'" target="_blank">点击查看</a></p></div></div></div>';
 	$(".row").append(showAiMsg);
 	$('html').scrollTop($(document).height());
-	$(".chat-title").html("与小V聊天中...");
+	$(".chat-title").html('<a href="./about.html" class="text-left" id="goback"><i class="fa fa-reply"></i></a>与小V聊天中');
 	}
 	switch(statusCode){
 	case 100000:
