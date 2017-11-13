@@ -1,3 +1,7 @@
+*{
+    font-family: "微软雅黑";
+    font-weight: lighter;
+}
 .fr{
 	float: right;
 }
@@ -6,12 +10,14 @@
 }
 .ai-padding{
 	padding-left: 0;
+    margin-top: 6px
 }
 .user-padding{
 	padding-right: 0;
+    margin-top: 6px
 }
-.chat-title{
-	background: #337ab7;
+.chat-title {
+    background: rgb(25, 44, 70);
     height: 50px;
     line-height: 50px;
     font-size: 20px;
@@ -19,7 +25,7 @@
     position: fixed;
     width: 100%;
     z-index: 999;
-    box-shadow: 0px 1px 1px #080808
+    box-shadow: 0px 1px 7px rgba(24, 74, 93, 0.7);
 }
 /*不影响布局*/
 .row{
@@ -50,64 +56,41 @@ margin-top: 8px;
 }
 /*消息文本*/
 .msg{
-	border-radius: 5px;
-   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.49);
-    font-size: 22px;
+	border-radius: 0 25px 25px 25px;
+    font-size: 18px;
     word-break: break-all;
     width: auto;
-    padding: 6px;
+    padding: 10px;
     display: inline-block;
     margin: auto;
-    background: white;
-    letter-spacing: 1px
+    background: rgba(25, 147, 147, 0.2);;
+    letter-spacing: 1px;
+    color:#11a470;
+    transition: width .12s ease-out, height .12s ease-out;
 }
-/** 通过对小正方形旋转45度解决 **/
-.msg::before {
-    content: '';
-    position: absolute;
-    top: 25px;
-    left: -5px;
-    width: 10px;
-    height: 10px;
-    margin-top: -10px;
-    background: inherit;/*自动继承父元素的背景*/
-    transform: rotate(45deg);
-    box-shadow: -1px 1px 1px 0px rgba(0, 0, 0, 0.49);
-}
+
+
 .user-msg{
 	margin-top: 8px;
 }
 .rightmsg{
-	border-radius: 5px;
-   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.49);
-    font-size: 22px;
+	border-radius: 25px 25px 0 25px;
+    font-size: 18px;
     word-break: break-all;
     width: auto;
-    padding: 6px;
+    padding: 10px;
     display: inline-block;
     margin: auto;
-    background: white;
-    letter-spacing: 1px
+    background: rgba(25, 147, 147, 0.2);;
+    letter-spacing: 1px;
+    color:#11a470;
 }
-.rightmsg::before {
-    content: '';
-    position: absolute;
-    top: 25px;
-    right: -5px;
-    width: 10px;
-    height: 10px;
-    margin-top: -10px;
-    background: inherit;/*自动继承父元素的背景*/
-    transform: rotate(45deg);
-    box-shadow: 1px -1px 1px 0px rgba(0, 0, 0, 0.49);
-}
-.container{
-	background-image: linear-gradient(#8b9da9, #fff6e4);
+.container-fluid{
+	background:-webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
 	min-height:100vh;
 }
 /*输入框*/
 .input-box{
-	border-bottom: 1px solid #337ab7;
 	border-radius: 0;
 }
 #sendButton{
@@ -115,4 +98,39 @@ margin-top: 8px;
 }
 #userMsg{
 	border-radius: 0;
+    height: 42px;
+    filter: opacity(0.99);
+    color: white;
+    border:none;
+    font-weight: lighter;
+    padding-left: 20px;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
+    font-size: 18px;
+    width: 100%;
+    background: hsla(0,0%,100%,.25) border-box;
+    overflow: hidden;
+}
+#userMsg::before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: -30px;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+}
+/*输入框样式重写*/
+.input-group {
+    width: 100%;
+}
+/*返回about页面*/
+#goback{
+    display: inline-block;
+    float: left;
+    position: absolute;
+    left: .7em;
+    font-size: 23px;
+    color: #e4e7ea;
 }

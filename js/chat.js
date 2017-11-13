@@ -1,11 +1,15 @@
 function sendMsg(){
-		var userMsg=$("#userMsg").val();
+		var userMsg=$.trim($("#userMsg").val());
+		if(userMsg!=""&&userMsg!=" "){
 		console.log("待发送数据:"+userMsg);
 		$("#userMsg").val("");
 		$(".chat-title").html("<span style='font-size:17px;'>输入中...<span>");
-		var showMsg='<!-- 用户消息窗口 --><div class="col-xs-12 msg-view"><div class="user-msg"><div class="col-xs-9 user-padding"><p class="rightmsg fr">'+userMsg+'</p></div><div class="col-xs-3"><img src="./images/headlogo.jpg"></div></div></div>'
+		var showMsg='<!-- 用户消息窗口 --><div class="col-xs-12 msg-view"><div class="user-msg"><div class="col-xs-9 user-padding"><p class="rightmsg fr">'+userMsg+'</p></div><div class="col-xs-3"><img src="./images/boy.png"></div></div></div>';
 	setTimeout(addMsg(showMsg),1000);
 	getMsg(userMsg);
+	}else{
+		$("#userMsg").val("");
+	}
 	}
 //发送数据到图灵api
 function getMsg(userMessage){
@@ -27,22 +31,22 @@ function(result){
 	console.log("进入文本分类");
 	var resultMsg=result.text;
 	console.log('接收数据:'+resultMsg);
-	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/rem.jpg"></div><div class="col-xs-9 ai-padding"><p class="msg">'+resultMsg+'</p></div></div></div>';
+	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/girl.png"></div><div class="col-xs-9 ai-padding"><p class="msg">'+resultMsg+'</p></div></div></div>';
 	$(".row").append(showAiMsg);
 	$('html').scrollTop( $(document).height());
-	$(".chat-title").html("蕾姆");
+	$(".chat-title").html("与小V聊天中...");
 	}
 	//链接类
 	function linkMsg(){
 	console.log("进入链接分类");
 	var resultMsg=result.text;
 	var resultLink=result.url;
-	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/rem.jpg"></div><div class="col-xs-9 ai-padding"><p class="msg">'+resultMsg+'</p></div></div></div>';
+	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/girl.png"></div><div class="col-xs-9 ai-padding"><p class="msg">'+resultMsg+'</p></div></div></div>';
 	$(".row").append(showAiMsg);
-	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/rem.jpg"></div><div class="col-xs-9 ai-padding"><p class="msg"><a href="'+resultLink+'" target="_blank">点击查看</a></p></div></div></div>';
+	var showAiMsg='<!-- 机器人消息窗口 --><div class="col-xs-12 msg-view"><div class="ai-msg"><div class="col-xs-3"><img src="./images/girl.png"></div><div class="col-xs-9 ai-padding"><p class="msg"><a href="'+resultLink+'" target="_blank">点击查看</a></p></div></div></div>';
 	$(".row").append(showAiMsg);
 	$('html').scrollTop($(document).height());
-	$(".chat-title").html("蕾姆");
+	$(".chat-title").html("与小V聊天中...");
 	}
 	switch(statusCode){
 	case 100000:
@@ -64,7 +68,7 @@ $(document).ready(function(){
 	document.onkeydown=function(event){
   var e = event || window.event || arguments.callee.caller.arguments[0];
    if(e && e.keyCode==13){
-     console.log("发送...");
+     console.log("发送按钮点击...");
      sendMsg();
   }
 }; 
