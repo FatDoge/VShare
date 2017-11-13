@@ -138,3 +138,35 @@ h2{
 	line-height: 50px;
 	color: #222;
 }
+/*valine样式重写*/
+.comment{
+	border-radius: 6px;
+	box-shadow:
+    -1px 1px 2px 1px rgba(0,0,0,0.10),
+    -2px 2px 2px 1px rgba(0,0,0,0.09),
+    -3px 3px 2px 1px rgba(0,0,0,0.08),
+    -4px 4px 2px 1px rgba(0,0,0,0.07),
+    -5px 5px 2px 1px rgba(0,0,0,0.06),
+    -6px 6px 2px 1px rgba(0,0,0,0.05),
+    -7px 7px 2px 1px rgba(0,0,0,0.04),
+    -8px 8px 2px 1px rgba(0,0,0,0.03),
+    -9px 9px 2px 1px rgba(0,0,0,0.03),
+    -10px 10px 2px 1px rgba(0,0,0,0.03),
+    -11px 11px 2px 1px rgba(0,0,0,0.03),
+    -12px 12px 2px 1px rgba(0,0,0,0.02),
+    -13px 13px 2px 1px rgba(0,0,0,0.02),
+    -14px 14px 2px 1px rgba(0,0,0,0.01),
+    -15px 15px 2px 1px rgba(0,0,0,0.01),
+    -16px 16px 2px 1px rgba(0,0,0,0.01)
+  ;
+}
+.valine li, .valine ul {
+    margin-left: 5px;
+}
+.power{
+	display: none;
+}
+.valine .vlist .vcard .vhead .vsys {
+    background: #f2dede;
+    color: #a94442;
+}
