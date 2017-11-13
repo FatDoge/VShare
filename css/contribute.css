@@ -11,11 +11,11 @@ input{
     border-bottom: 2px solid #777;
     font-size: 20px;
     letter-spacing: 2px;
-    transition: 0.3 ease-in-out;
+    transition: 0.5s ease-in-out;
 	}
 	input:hover{
 		border-bottom:2px solid #f17c67;
-		transition: 0.3 ease-in-out;
+		transition: 0.5s ease-in-out;
 	}
 	.container{
 		width: 100%;
