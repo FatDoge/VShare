@@ -163,9 +163,6 @@ h2{
 .valine li, .valine ul {
     margin-left: 5px;
 }
-.power{
-	display: none;
-}
 .valine .vlist .vcard .vhead .vsys {
     background: #f2dede;
     color: #a94442;
