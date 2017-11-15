@@ -128,8 +128,8 @@ p{
     height: 50px;
     padding-left: 12px;
     width: 50px;
-    background: #333;
-    border: 1px solid #1d1c1d;
-    box-shadow: 0px 0px 8px 0px #1d1c1d;
-    -webkit-text-stroke: #333 4.5px;
+    background: #3f51b5;
+    border: 1px solid #3f51b5;
+    box-shadow: 0px 0px 8px 0px #3f51b5;
+    -webkit-text-stroke: #3f51b5 4.5px;
 }
