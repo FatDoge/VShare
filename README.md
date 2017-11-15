@@ -26,6 +26,7 @@ git clone https://github.com/FatDoge/VShare.git
 - Clint Brown
 - 羡辙
 - VSCOM
+- 浪味仙居
 - 网易云音乐
 #### 主配色:
 
