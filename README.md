@@ -1,13 +1,40 @@
-# 创新实践期末作业
-## 谢绝抄袭
-<div align="center">
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afafcba2c7.png" alt="hduzjh.cn-about.html(Galaxy S5).png" title="hduzjh.cn-about.html(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afafe4c970.png" alt="hduzjh.cn-(Galaxy S5).png" title="hduzjh.cn-(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afb01c7100.png" alt="hduzjh.cn-chat.html(Galaxy S5).png" title="hduzjh.cn-chat.html(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afb028ef8b.png" alt="hduzjh.cn-pageshow.html(Galaxy S5).png" title="hduzjh.cn-pageshow.html(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afb0773cfb.png" alt="hduzjh.cn-pic01.html(Galaxy S5).png" title="hduzjh.cn-pic01.html(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afb08794e4.png" alt="hduzjh.cn-login.html(Galaxy S5).png" title="hduzjh.cn-login.html(Galaxy S5).png" />
-<img width="200px" src="https://ooo.0o0.ooo/2017/11/14/5a0afb0918371.png" alt="hduzjh.cn-picshow.html(Galaxy S5).png" title="hduzjh.cn-picshow.html(Galaxy S5).png" />
-<img width="200px" src="https://i.loli.net/2017/11/14/5a0afb099a2fc.png" alt="hduzjh.cn-selfcenter.html(Galaxy S5).png" title="hduzjh.cn-selfcenter.html(Galaxy S5).png" />
-<img width="200px" src="https://ooo.0o0.ooo/2017/11/14/5a0afb0ae4a4e.png" alt="hduzjh.cn-page01.html(Galaxy S5).png" title="hduzjh.cn-page01.html(Galaxy S5).png" />
-</div>
+## 1、介绍
+#### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。
+## 2、食用方法
+```
+git clone https://github.com/FatDoge/VShare.git
+```
+## 3、(伪)技术栈
+#### 语言:
+- Html 
+- CSS 
+- Javascript
+#### 框架:
+- Bootstrap 
+- jQuery
+#### iconfont:
+- fontawesome
+#### CDN:
+- BootCDN
+#### 插件:
+- bootstrap-waterfall
+- fileinput
+- imagesloaded
+- onepage
+- Valine
+#### 样式参考:
+- Clint Brown
+- 羡辙
+- VSCOM
+- 网易云音乐
+#### 主配色:
+
+<html>
+<span style="background:#3F51B5;color:#fff">#3F51B5</span>
+<span style="background:#E91E63;color:#fff">#E91E63</span>
+</html>
+
+
+#### 小V机器人api:
+- 图灵机器人
+> 遵循MIT协议
