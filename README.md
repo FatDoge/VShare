@@ -1,4 +1,3 @@
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/FatDoge/VShare.git)
 [![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/FatDoge/VShare.git)
 ![](https://img.shields.io/badge/Github-v1.3.3-519dd9.svg)
 ## 1、介绍
