@@ -1,6 +1,5 @@
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/FatDoge/VShare.git)
 ## 1、介绍
-#### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。创新实践作业，请勿直接抄袭。
+#### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。
 ## 2、食用方法
 ```
 git clone https://github.com/FatDoge/VShare.git
@@ -31,10 +30,7 @@ git clone https://github.com/FatDoge/VShare.git
 - 网易云音乐
 #### 主配色:
 
-<html>
-<span style="background:#3F51B5;color:#fff">#3F51B5</span>
-<span style="background:#E91E63;color:#fff">#E91E63</span>
-</html>
+![color.jpg](https://i.loli.net/2017/11/15/5a0bac42d33ea.jpg)
 
 
 #### 小V机器人api:
