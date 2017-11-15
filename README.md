@@ -1,6 +1,6 @@
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/FatDoge/VShare.git)
 ## 1、介绍
-#### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。
+#### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。创新实践作业，请勿直接抄袭。
 ## 2、食用方法
 ```
 git clone https://github.com/FatDoge/VShare.git
