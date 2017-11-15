@@ -316,3 +316,15 @@ a{
     margin: auto;
     margin-top: 15px;
 }
+@media (min-width: 768px){
+.navbar-nav > li{
+    transition: 0.3s ease-in-out
+}
+.navbar-nav > li:hover{
+    float: left;
+    background:#e91e63;
+    box-shadow: 0px -1px 3px 1px #C2185B;
+    transition: 0.3s ease-in-out;
+    letter-spacing: 2px;
+}
+}
