@@ -292,3 +292,27 @@ a{
     margin-left: 0px;
     margin-right: 15px;
 }
+/*按钮重写*/
+.delete {
+    color: #fff;
+    background-color: #e91e63;
+    border-color: #F48FB1;
+    border-radius: 0;
+    display: inline;
+}
+.delete:hover {
+    color: #fff;
+    background-color: #e91e63;
+    border-color: #F06292;
+}
+.delete:active {
+    color: #fff;
+    background-color: #e91e63;
+    border-color: #F06292;
+}
+.btn-block {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-top: 15px;
+}

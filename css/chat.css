@@ -113,6 +113,10 @@ margin-top: 8px;
     width: 100%;
     background: hsla(0,0%,100%,.25) border-box;
     overflow: hidden;
+    outline: none;
+}
+#userMsg:focus{
+    outline: none;
 }
 #userMsg::before{
     content: '';
