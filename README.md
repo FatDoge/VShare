@@ -1,4 +1,3 @@
-[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/FatDoge/VShare.git)
 ![](https://img.shields.io/badge/Github-v1.3.3-519dd9.svg)
 ## 1、介绍
 #### VShare是一个分享平台，你可以在这里提交文章或图片并展示给全站用户。项目后台未搭建，目前项目为前端展示阶段。
