@@ -10,22 +10,22 @@ function showInfo(){
 	var flag=0;
 	if(!judge.test(nickname)){
 		console.log("nickname null");
-		$("#nickname").css("border-bottom","3px solid #cc3532");
+		$("#nickname").css("border-bottom","3px solid #E91E63");
 		setTimeout(resetBorder,1000);
 		flag=1;
 	}
 	if(!judge.test(email)){
-		$("#email").css("border-bottom","3px solid #cc3532");
+		$("#email").css("border-bottom","3px solid #E91E63");
 		setTimeout(resetBorder,1000);
 		flag=1;
 	}
 	if(!judge.test(title)){
-		$("#title").css("border-bottom","3px solid #cc3532");
+		$("#title").css("border-bottom","3px solid #E91E63");
 		setTimeout(resetBorder,1000);
 		flag=1;
 	}
 	if(!judge.test(link)){
-		$("#link").css("border-bottom","3px solid #cc3532");
+		$("#link").css("border-bottom","3px solid #E91E63");
 		setTimeout(resetBorder,1000);
 		flag=1;
 	}

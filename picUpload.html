@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VShare</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/LXXUploadPic.css">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/contribute.css">
+	<script src="./js/LXXUploadPic.js"></script>
+</head>
+<body>
+	<div align="center">
+		<br>
+		<div id="LXXUploadPic" LXXCol="1" LXXRow="1" LXXWidth="300" LXXHeight="300"></div>
+		<button onclick="showInfo()">提交审核</button>
+	</div>
+<div class="success">
+	<!-- 审核成功 -->
+	<div class="text-center">
+		<i class="fa fa-check-circle"></i>
+		<p class="tips">提交成功</p>
+	</div>
+</div>
+</div>
+<script>
+	function showInfo(){
+		if($("input").val()==""){
+			$("input").css("border","3px solid orange");
+		}else
+		$(".success").show();
+	}
+</script>
+</body>
+</html>
