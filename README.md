@@ -24,6 +24,7 @@ git clone https://github.com/FatDoge/VShare.git
 - onepage
 - Valine
 - Layer
+- LXXUploadPic
 #### 样式参考:
 - Clint Brown
 - 羡辙
