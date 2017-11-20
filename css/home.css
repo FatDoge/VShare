@@ -96,10 +96,10 @@ background: linear-gradient(135deg, rgba(244,226,156,0) 0%,rgba(59,41,58,1) 100%
   margin-top: 165px;
   color:white;
   font-weight: lighter;
-  background: rgba(0, 0, 0, 0.51);
+  background: #3F51B5;
 }
 .footerInfo{
-  line-height: 45px;
+  line-height: 60px;
   font-size: 16px;
 }
 .main{
