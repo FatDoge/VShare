@@ -150,10 +150,11 @@
     <script>
         new Valine({
             // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
-            av: AV, 
-            el: '.comment', // 
-            app_id: 'pjap5bPcLKxRPquTPAbCUghg-gzGzoHsz', // 这里填写上面得到的APP ID
-            app_key: '264SgCtUiMBre6HHIObN6zN4', // 这里填写上面得到的APP KEY
+            el: '.comment',
+			notify: true, // 邮件提醒!!!
+			verify: true, // 验证码
+            app_id: 'pEUNSmIOUPk1jIRvWfEqdRLc-gzGzoHsz', // 这里填写上面得到的APP ID
+            app_key: 'NupnAdXxRyow0Y5PeHdhqNNK', // 这里填写上面得到的APP KEY
             placeholder: '请在此输入评论' // [v1.0.7 new]留言框占位提示文字
         });
     </script>
