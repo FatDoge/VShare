@@ -97,7 +97,7 @@ a{
 .heartAnimation {
   -webkit-animation-name: heartBlast; //webkit内核浏览器
   animation-name: heartBlast;
-  -webkit-animation-duration: .8s;
+  -webkit-animation-duration: 0.8s;
   animation-duration: .8s;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
