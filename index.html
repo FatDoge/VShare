@@ -21,8 +21,12 @@
 	<script src="./js/main.js"></script>
     <script src="./js/index.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/home.css">
+		<link rel="stylesheet" href="./css/examples.css">
 </head>
 <body>
+		<div id="preloader" style="z-index:99999999">
+				<div id="preloader-inner"></div>
+			</div>  
 	<!-- 导航条 -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -110,8 +114,7 @@
     </section>
     </div>
 
-
-
+ 
 <script src="js/classie.js"></script>
 	<script src="js/dynamics.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
@@ -120,5 +123,11 @@ $(function(){
     $('.main').onepage_scroll();
 });
 	</script>
+		<script src="./js/jquery.preloader.min.js"></script>
+		<script>
+		$(window).preloader({
+			fadeDuration:1000
+		});    
+		</script>
 </body>
 </html>

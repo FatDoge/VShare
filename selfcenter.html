@@ -18,11 +18,15 @@
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<link rel="stylesheet" type="text/css" href="./css/lunbo.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="./css/examples.css">
 	<script src="./js/typed.js"></script>
 	<script src="./js/main.js"></script>
 </head>
 
 <body>
+		<div id="preloader" >
+				<div id="preloader-inner"style="z-index:999999"></div>
+			</div>  
 	<!-- 导航条 -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -190,6 +194,12 @@ layer.open({
 
 		}
 	</script>
+		<script src="./js/jquery.preloader.min.js"></script>
+		<script>
+		$(window).preloader({
+			fadeDuration:1000
+		});    
+		</script>
 </body>
 
 </html>

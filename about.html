@@ -145,8 +145,6 @@
          </div>
          </div>
          </div>
-
-
     <script>
         new Valine({
             // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
@@ -179,5 +177,15 @@ document.body.addEventListener('input', POWERMODE);
 window.location="./chat.html";
 }
 	</script>
+<div id="preloader" style="z-index:99999999">
+	<div id="preloader-inner"></div>
+</div>
+<script src="./js/jquery.preloader.min.js"></script>
+<link rel="stylesheet" href="./css/examples.css">
+<script>
+$(window).preloader({
+	fadeDuration:1000
+});    
+</script>  
 </body>
 </html>
