@@ -25,6 +25,7 @@ git clone https://github.com/FatDoge/VShare.git
 - Valine
 - Layer
 - LXXUploadPic
+- Preloader
 #### 样式参考:
 - Clint Brown
 - 羡辙
